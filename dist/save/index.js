@@ -3423,7 +3423,7 @@ var DiagAPI = /** @class */ (function () {
                 // shortcut if logger not set
                 if (!logger)
                     return;
-                return logger[funcName].apply(logger, 
+                return logger[funcName].apply(logger,
                 // work around Function.prototype.apply types
                 // eslint-disable-next-line @typescript-eslint/no-explicit-any
                 arguments);
@@ -28068,7 +28068,7 @@ const fsCreateReadStream = fs.createReadStream;
  * append blob, or page blob.
  */
 class BlobClient extends StorageClient {
-    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions, 
+    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -29106,7 +29106,7 @@ class BlobClient extends StorageClient {
  * AppendBlobClient defines a set of operations applicable to append blobs.
  */
 class AppendBlobClient extends BlobClient {
-    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions, 
+    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -29358,7 +29358,7 @@ class AppendBlobClient extends BlobClient {
  * BlockBlobClient defines a set of operations applicable to block blobs.
  */
 class BlockBlobClient extends BlobClient {
-    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions, 
+    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -29973,7 +29973,7 @@ class BlockBlobClient extends BlobClient {
                 if (options.onProgress) {
                     options.onProgress({ loadedBytes: transferProgress });
                 }
-            }, 
+            },
             // concurrency should set a smaller value than maxConcurrency, which is helpful to
             // reduce the possibility when a outgoing handler waits for stream data, in
             // this situation, outgoing handlers are blocked.
@@ -29998,7 +29998,7 @@ class BlockBlobClient extends BlobClient {
  * PageBlobClient defines a set of operations applicable to page blobs.
  */
 class PageBlobClient extends BlobClient {
-    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions, 
+    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, blobNameOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -30889,7 +30889,7 @@ class BatchHeaderFilterPolicyFactory {
  * @see https://docs.microsoft.com/en-us/rest/api/storageservices/blob-batch
  */
 class BlobBatchClient {
-    constructor(url, credentialOrPipeline, 
+    constructor(url, credentialOrPipeline,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -30921,7 +30921,7 @@ class BlobBatchClient {
     createBatch() {
         return new BlobBatch();
     }
-    async deleteBlobs(urlsOrBlobClients, credentialOrOptions, 
+    async deleteBlobs(urlsOrBlobClients, credentialOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -30936,7 +30936,7 @@ class BlobBatchClient {
         }
         return this.submitBatch(batch);
     }
-    async setBlobsAccessTier(urlsOrBlobClients, credentialOrTier, tierOrOptions, 
+    async setBlobsAccessTier(urlsOrBlobClients, credentialOrTier, tierOrOptions,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -31028,7 +31028,7 @@ class BlobBatchClient {
  * A ContainerClient represents a URL to the Azure Storage container allowing you to manipulate its blobs.
  */
 class ContainerClient extends StorageClient {
-    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName, 
+    constructor(urlOrConnectionString, credentialOrPipelineOrContainerName,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -32487,7 +32487,7 @@ function generateAccountSASQueryParameters(accountSASSignatureValues, sharedKeyC
  * to manipulate blob containers.
  */
 class BlobServiceClient extends StorageClient {
-    constructor(url, credentialOrPipeline, 
+    constructor(url, credentialOrPipeline,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -32519,7 +32519,7 @@ class BlobServiceClient extends StorageClient {
      *                                  `BlobEndpoint=https://myaccount.blob.core.windows.net/;QueueEndpoint=https://myaccount.queue.core.windows.net/;FileEndpoint=https://myaccount.file.core.windows.net/;TableEndpoint=https://myaccount.table.core.windows.net/;SharedAccessSignature=sasString`
      * @param options - Optional. Options to configure the HTTP pipeline.
      */
-    static fromConnectionString(connectionString, 
+    static fromConnectionString(connectionString,
     // Legacy, no fix for eslint error without breaking. Disable it for this interface.
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options*/
     options) {
@@ -44920,10 +44920,6 @@ function run() {
                 utils.logWarning(`Error retrieving key from state.`);
                 return;
             }
-            if (utils.isExactKeyMatch(primaryKey, state)) {
-                core.info(`Cache hit occurred on the primary key ${primaryKey}, not saving cache.`);
-                return;
-            }
             const cachePaths = utils.getInputAsArray(constants_1.Inputs.Path, {
                 required: true
             });
@@ -50384,7 +50380,7 @@ function retry(name, method, getStatusCode, maxAttempts = constants_1.DefaultRet
 exports.retry = retry;
 function retryTypedResponse(name, method, maxAttempts = constants_1.DefaultRetryAttempts, delay = constants_1.DefaultRetryDelay) {
     return __awaiter(this, void 0, void 0, function* () {
-        return yield retry(name, method, (response) => response.statusCode, maxAttempts, delay, 
+        return yield retry(name, method, (response) => response.statusCode, maxAttempts, delay,
         // If the error object contains the statusCode property, extract it and return
         // an ITypedResponse<T> so it can be processed by the retry logic.
         (error) => {
@@ -57193,7 +57189,7 @@ function createTokenCycler(credential, scopes, tokenCyclerOptions) {
             const tryGetAccessToken = () => credential.getToken(scopes, getTokenOptions);
             // Take advantage of promise chaining to insert an assignment to `token`
             // before the refresh can be considered done.
-            refreshWorker = beginRefresh(tryGetAccessToken, options.retryIntervalInMs, 
+            refreshWorker = beginRefresh(tryGetAccessToken, options.retryIntervalInMs,
             // If we don't have a token, then we should timeout immediately
             (_a = token === null || token === void 0 ? void 0 : token.expiresOnTimestamp) !== null && _a !== void 0 ? _a : Date.now())
                 .then((_token) => {
@@ -57831,7 +57827,7 @@ class ServiceClient {
      * @param credentials - The credentials used for authentication with the service.
      * @param options - The service client options that govern the behavior of the client.
      */
-    constructor(credentials, 
+    constructor(credentials,
     /* eslint-disable-next-line @azure/azure-sdk/ts-naming-options */
     options) {
         if (!options) {
